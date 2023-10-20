@@ -5,7 +5,7 @@ import NavButton from "@/components/NavButton";
 
 export default function Sidebar() {
 
-    return <aside className={"hidden lg:block lg:w-[20%] border-r border-gray-200 py-10 px-4"}>
+    return <aside className={"hidden lg:block fixed h-screen overflow-y-auto lg:w-[20%] border-r border-gray-200 py-10 px-4"}>
         <Image
             src="/logo.svg"
             width={200}
