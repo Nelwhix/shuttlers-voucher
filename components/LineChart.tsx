@@ -6,6 +6,8 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import Chart from "react-apexcharts"
+import {ApexOptions} from "apexcharts";
 
 
 
@@ -22,6 +24,42 @@ export default function LineChart({ caption }: Props) {
     const handleValueChange = (value: string) => {
         setRange(Number(value))
     }
+
+
+    const series = [{
+        name: "STOCK ABC",
+        data: [100, 1000, 3]
+    }]
+
+    const options = {
+        chart: {
+            type: "area",
+            zoom: {
+                enabled: false
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        fill: {
+            type: 'solid',
+            colors: ['#E5FAE8']
+        },
+        stroke: {
+            curve: 'straight',
+            colors: ['#00FF00'],
+            width: 1,
+        },
+        labels: ["Oct 1", "Oct 2", "Oct 3"],
+        xaxis: {
+            type: 'category',
+        },
+        yaxis: {
+            opposite: true
+        },
+    } as ApexOptions
+
+
 
     return <div className={"rounded-md shadow-sm border border-gray-300 w-1/2 py-6 px-10"}>
             <div className={"flex justify-between"}>
@@ -48,5 +86,12 @@ export default function LineChart({ caption }: Props) {
 
         <hr className={"mt-5"} />
 
+        <div className={"mt-16"}>
+            <Chart
+                options={options}
+                series={series}
+                type="area"
+            />
+        </div>
     </div>
 }

@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Plus } from "lucide-react"
 import Image from "next/image";
-import LineChart from "@/components/LineChart";
+import dynamic from "next/dynamic"
 
-
+const LineChart = dynamic(() => import('../components/LineChart'), {
+    ssr: false,
+    loading: () => <p>cooking chart..</p>
+})
 
 export default function Home() {
 
@@ -22,7 +25,7 @@ export default function Home() {
             </div>
 
             <div className={"flex gap-5"}>
-                <Button className={"rounded-full py-[14px] px-[19px] bg-white text-black flex items-center border border-gray-300"}>
+                <Button className={"rounded-full hover:bg-gray-200  py-[14px] px-[19px] bg-white text-black flex items-center border border-gray-300"}>
                     <Plus className="mr-2 h-4 w-4 text-green-500" />
                     <span>Create New</span>
                 </Button>
@@ -36,8 +39,8 @@ export default function Home() {
           <main className={"mt-12"}>
               <h2 className={"font-semibold text-lg"}>Quick Actions</h2>
 
-              <div className={"flex justify-between mt-8"}>
-                  <Button className={"rounded-md p-4 bg-white text-black flex gap-4 items-center border border-gray-300"}>
+              <div className={"grid grid-cols-4 gap-4 mt-8"}>
+                  <Button className={"rounded-md hover:bg-gray-200 p-4 bg-white text-black flex gap-4 items-center border border-gray-300"}>
                       <Image
                           src="/icons/ticket_green.svg"
                           width={20}
@@ -47,7 +50,7 @@ export default function Home() {
                       <span>Issue a New Voucher</span>
                   </Button>
 
-                  <Button className={"rounded-md p-4 bg-white text-black flex gap-4 items-center border border-gray-300"}>
+                  <Button className={"rounded-md hover:bg-gray-200  p-4 bg-white text-black flex gap-4 items-center border border-gray-300"}>
                       <Image
                           src="/icons/branch_green.svg"
                           width={12}
@@ -57,7 +60,7 @@ export default function Home() {
                       <span>Add a New Branch</span>
                   </Button>
 
-                  <Button className={"rounded-md p-4 bg-white text-black flex gap-4 items-center border border-gray-300"}>
+                  <Button className={"rounded-md hover:bg-gray-200  p-4 bg-white text-black flex gap-4 items-center border border-gray-300"}>
                       <Image
                           src="/icons/store_green.svg"
                           width={18}
@@ -67,7 +70,7 @@ export default function Home() {
                       <span>Add a retailer</span>
                   </Button>
 
-                  <Button className={"rounded-md p-4 bg-white text-black flex gap-4 items-center border border-gray-300"}>
+                  <Button className={"rounded-md hover:bg-gray-200  p-4 bg-white text-black flex gap-4 items-center border border-gray-300"}>
                       <Image
                           src="/icons/table.svg"
                           width={20}
