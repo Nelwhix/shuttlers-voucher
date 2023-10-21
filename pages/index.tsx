@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Plus } from "lucide-react"
 import Image from "next/image";
 import dynamic from "next/dynamic"
+import QuickActionButton from "@/components/QuickActionButton";
 
 const LineChart = dynamic(() => import('../components/LineChart'), {
     ssr: false,
@@ -25,7 +26,7 @@ export default function Home() {
             </div>
 
             <div className={"flex gap-5"}>
-                <Button className={"rounded-full hover:bg-gray-200  py-[14px] px-[19px] bg-white text-black hidden lg:flex items-center border border-gray-300"}>
+                <Button className={"rounded-full shadow-[0px_0px_32px_0px_rgba(204,204,204,0.25)] hover:bg-gray-200  py-[14px] px-[19px] bg-white text-black hidden lg:flex items-center border border-gray-300"}>
                     <Plus className="mr-2 h-4 w-4 text-green-500" />
                     <span>Create New</span>
                 </Button>
@@ -37,10 +38,10 @@ export default function Home() {
         </header>
 
           <main className={"mt-12"}>
-              <h2 className={"font-semibold text-lg"}>Quick Actions</h2>
+              <h2 className={"font-semibold text-xl"}>Quick Actions</h2>
 
               <div className={"grid grid-cols-1 lg:grid-cols-4 gap-4 mt-8"}>
-                  <Button className={"rounded-md hover:bg-gray-200 p-4 bg-white text-black flex gap-4 items-center border border-gray-300"}>
+                  <QuickActionButton>
                       <Image
                           src="/icons/ticket_green.svg"
                           width={20}
@@ -48,9 +49,9 @@ export default function Home() {
                           alt="logo"
                       />
                       <span>Issue a New Voucher</span>
-                  </Button>
+                  </QuickActionButton>
 
-                  <Button className={"rounded-md hover:bg-gray-200  p-4 bg-white text-black flex gap-4 items-center border border-gray-300"}>
+                  <QuickActionButton>
                       <Image
                           src="/icons/branch_green.svg"
                           width={12}
@@ -58,9 +59,9 @@ export default function Home() {
                           alt="logo"
                       />
                       <span>Add a New Branch</span>
-                  </Button>
+                  </QuickActionButton>
 
-                  <Button className={"rounded-md hover:bg-gray-200  p-4 bg-white text-black flex gap-4 items-center border border-gray-300"}>
+                  <QuickActionButton>
                       <Image
                           src="/icons/store_green.svg"
                           width={18}
@@ -68,9 +69,9 @@ export default function Home() {
                           alt="logo"
                       />
                       <span>Add a retailer</span>
-                  </Button>
+                  </QuickActionButton>
 
-                  <Button className={"rounded-md hover:bg-gray-200  p-4 bg-white text-black flex gap-4 items-center border border-gray-300"}>
+                  <QuickActionButton>
                       <Image
                           src="/icons/table.svg"
                           width={20}
@@ -78,11 +79,11 @@ export default function Home() {
                           alt="logo"
                       />
                       <span>View Redemption History</span>
-                  </Button>
+                  </QuickActionButton>
               </div>
 
               <div className={"mt-10"}>
-                  <h2 className={"font-semibold text-lg"}>Dashboard Overview</h2>
+                  <h2 className={"font-semibold text-xl"}>Dashboard Overview</h2>
 
                   <div className={"flex flex-col lg:flex-row gap-4 justify-between mt-10"}>
                         <LineChart caption={"Vouchers Issued"} />

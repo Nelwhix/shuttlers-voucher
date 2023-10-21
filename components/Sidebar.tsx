@@ -36,9 +36,9 @@ export default function Sidebar() {
             />
 
             <div className={"mt-6"}>
-                <p className={"font-medium"}>Manage</p>
+                <p className={"font-medium px-4"}>Manage</p>
 
-                <div>
+                <div className={"mt-4"}>
                     <NavButton
                         text={"Branches"}
                         icon={"/icons/branch.svg"}
@@ -66,9 +66,9 @@ export default function Sidebar() {
             </div>
 
             <div className={"mt-6"}>
-                <p className={"font-medium"}>History</p>
+                <p className={"font-medium px-4"}>History</p>
 
-                <div>
+                <div className={"mt-4"}>
                     <NavButton
                         text={"Voucher Transactions"}
                         icon={"/icons/receipt_solid.svg"}
@@ -95,10 +95,10 @@ export default function Sidebar() {
                 </div>
             </div>
 
-            <div className={"mt-6"}>
-                <p className={"font-medium"}>More Actions</p>
+            <div className={"mt-10"}>
+                <p className={"font-medium px-4"}>More Actions</p>
 
-                <div>
+                <div className={"mt-8"}>
                     <NavButton
                         text={"Generate Report"}
                         icon={"/icons/pie_chart.svg"}

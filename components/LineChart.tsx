@@ -64,14 +64,11 @@ export default function LineChart({ caption }: Props) {
         xaxis: {
             type: 'datetime',
         },
-        yaxis: {
-            opposite: true
-        },
     } as ApexOptions
 
 
 
-    return <div className={"rounded-md shadow-sm border border-gray-300 w-full lg:w-1/2 py-6 px-10"}>
+    return <div className={"rounded-md border border-gray-300 w-full lg:w-1/2 py-6 px-10 shadow-[0px_0px_29.15122px_0px_rgba(235,235,235,0.25)]"}>
             <div className={"flex justify-between"}>
                 <div>
                     <p className={"text-sm text-gray-500"}>{caption}</p>

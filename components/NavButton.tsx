@@ -20,7 +20,7 @@ export default function NavButton({ text, icon, iconWidth, iconHeight, active }:
                 alt={text}
             />
 
-            <span>{text}</span>
+            <span className={`font-medium text-sm ${active ? '' : 'text-[#565656]'}`}>{text}</span>
         </button>
     )
 }
