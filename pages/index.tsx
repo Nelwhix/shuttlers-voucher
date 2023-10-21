@@ -17,7 +17,7 @@ export default function Home() {
     });
 
   return (
-      <div className={"ml-[20%] p-10"}>
+      <div className={"lg:ml-[20%] p-5 lg:p-10"}>
         <header className={"flex justify-between"}>
             <div>
                 <p className={"text-sm text-gray-400"}>{formatter.format(new Date())} </p>
@@ -25,7 +25,7 @@ export default function Home() {
             </div>
 
             <div className={"flex gap-5"}>
-                <Button className={"rounded-full hover:bg-gray-200  py-[14px] px-[19px] bg-white text-black flex items-center border border-gray-300"}>
+                <Button className={"rounded-full hover:bg-gray-200  py-[14px] px-[19px] bg-white text-black hidden lg:flex items-center border border-gray-300"}>
                     <Plus className="mr-2 h-4 w-4 text-green-500" />
                     <span>Create New</span>
                 </Button>
@@ -39,7 +39,7 @@ export default function Home() {
           <main className={"mt-12"}>
               <h2 className={"font-semibold text-lg"}>Quick Actions</h2>
 
-              <div className={"grid grid-cols-4 gap-4 mt-8"}>
+              <div className={"grid grid-cols-1 lg:grid-cols-4 gap-4 mt-8"}>
                   <Button className={"rounded-md hover:bg-gray-200 p-4 bg-white text-black flex gap-4 items-center border border-gray-300"}>
                       <Image
                           src="/icons/ticket_green.svg"
@@ -84,7 +84,7 @@ export default function Home() {
               <div className={"mt-10"}>
                   <h2 className={"font-semibold text-lg"}>Dashboard Overview</h2>
 
-                  <div className={"flex gap-4 justify-between mt-10"}>
+                  <div className={"flex flex-col lg:flex-row gap-4 justify-between mt-10"}>
                         <LineChart caption={"Vouchers Issued"} />
                         <LineChart caption={"Vouchers Redeemed"} />
                   </div>

@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: Gordita;
+  src: url('/fonts/Gordita-Font/Gordita-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Gordita;
+  src: url('/fonts/Gordita-Font/Gordita-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Gordita;
+  src: url('/fonts/Gordita-Font/Gordita-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: Gordita, sans-serif;
+}
+
 
 @layer base {
   :root {

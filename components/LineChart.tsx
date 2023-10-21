@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useRef, useState} from "react";
 import {
     Select,
     SelectContent,
@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/select"
 import Chart from "react-apexcharts"
 import {ApexOptions} from "apexcharts";
+import {arraySum, generateDataLabels, generateDataSet} from "@/lib/utils";
 
 
 
@@ -15,20 +16,29 @@ interface Props {
     caption: string
 }
 
+const week = generateDataSet(7)
+const weekLabels = generateDataLabels(7)
+
+const month = generateDataSet(30)
+const year = generateDataSet(12)
+const dummy = [arraySum(week), arraySum(month), arraySum(year)]
+
 
 export default function LineChart({ caption }: Props) {
     const [range, setRange] = useState(0)
-
-    const dummy = [70, 284, 2450]
+    const chartRef = useRef<Chart|null>(null)
 
     const handleValueChange = (value: string) => {
         setRange(Number(value))
+
+        // if (chartRef.current !== null) {
+        //     chartRef.current.updateSeries()
+        // }
     }
 
-
     const series = [{
-        name: "STOCK ABC",
-        data: [100, 1000, 3]
+        name: caption.toUpperCase(),
+        data: week
     }]
 
     const options = {
@@ -50,9 +60,9 @@ export default function LineChart({ caption }: Props) {
             colors: ['#00FF00'],
             width: 1,
         },
-        labels: ["Oct 1", "Oct 2", "Oct 3"],
+        labels: weekLabels,
         xaxis: {
-            type: 'category',
+            type: 'datetime',
         },
         yaxis: {
             opposite: true
@@ -61,11 +71,11 @@ export default function LineChart({ caption }: Props) {
 
 
 
-    return <div className={"rounded-md shadow-sm border border-gray-300 w-1/2 py-6 px-10"}>
+    return <div className={"rounded-md shadow-sm border border-gray-300 w-full lg:w-1/2 py-6 px-10"}>
             <div className={"flex justify-between"}>
                 <div>
                     <p className={"text-sm text-gray-500"}>{caption}</p>
-                    <p className={"font-semibold text-lg"}>
+                    <p className={"font-semibold text-xl xl:text-3xl"}>
                         {dummy[range]}
                     </p>
                 </div>
@@ -88,6 +98,7 @@ export default function LineChart({ caption }: Props) {
 
         <div className={"mt-16"}>
             <Chart
+                ref={chartRef}
                 options={options}
                 series={series}
                 type="area"
